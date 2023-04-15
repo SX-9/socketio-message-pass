@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io Message Passing Example</title>
+    <style>
+        * {
+            color-scheme: dark;
+            font-family: sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        input {
+            display: block;
+            margin: .2em;
+        }
+
+        div {
+            max-height: 50%;
+            overflow: scroll;
+            gap: .2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Socket Msg Pass</h1>
+    <form id="form">
+        <label for="event">Event:</label>
+        <input type="text" name="event" id="ev">
+        <label for="data">Data:</label>
+        <input type="text" name="data" id="data">
+        <input type="submit" value="Emit">
+    </form>
+    <h2>Emitted Stuff:</h2>
+    <div id="events"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io('/');
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            socket.emit(ev.value, data.value);
+        }
+
+        socket.onAny((...e) => {
+            let container = document.createElement('fieldset');
+            let p = document.createElement('p');
+
+            p.innerText = 'Event: ' + e[0] + '\nData: ' + e[1];
+            container.appendChild(p);
+
+            events.appendChild(container);
+        });
+    </script>
+</body>
+</html>
