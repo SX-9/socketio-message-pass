@@ -1,5 +1,3 @@
-**_(WORK IN PROGRESS NOTHING IS WORKING YET)_**
-
 # Socket.io Message Passing
 
 Need A Socket.io Server Just To Send Messages Between Clients
