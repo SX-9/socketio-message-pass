@@ -37,3 +37,5 @@ socket.onAny((eventName, data) => {
 ```
 
 **Note**: Every Emitted Event Is Logged On Our Server **_DONT SEND SENSITIVE INFORMATION_**
+
+**Note2**: Since This Project Is Hosted On [Railway](https://railway.app) Free Tier **_There Might Be A Lot Of Down Time_**
